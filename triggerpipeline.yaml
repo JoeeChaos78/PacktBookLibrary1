@@ -1,0 +1,15 @@
+trigger:
+- main
+pool:
+name: Azure Pipelines
+vmImage: windows-2019
+steps:
+- task: DotNetCoreCLI@2
+displayName: 'dotnet build'
+inputs:
+projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+displayName: 'dotnet test'
+inputs:
+command: test
+projects: '**/*.csproj'
